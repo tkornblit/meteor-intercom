@@ -54,4 +54,6 @@ if (Meteor.settings && Meteor.settings.public && Meteor.settings.public.intercom
         });
     });
 
+} else {
+    console.log("public.intercom.id has not been set in your settings.json file.");
 }
