@@ -1,3 +1,5 @@
+//Forked by TK
+
 IntercomSettings = {};
 
 if (Meteor.settings && Meteor.settings.public && Meteor.settings.public.intercom && Meteor.settings.public.intercom.id) {
