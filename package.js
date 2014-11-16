@@ -1,7 +1,7 @@
 Package.describe({
   name: "tkornblit:intercom",
   summary: "Intercom.io basic integration",
-  version: "0.2.1"
+  version: "1.0.2"
 });
 
 Package.on_use(function (api, where) {
