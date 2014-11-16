@@ -26,14 +26,15 @@ if (Meteor.settings && Meteor.settings.public && Meteor.settings.public.intercom
 
     IntercomSettings.minimumUserInfo = minimumUserInfo;
 
-    var booted = false;
+    var booted = {};
 
     // send data to intercom
     Meteor.startup(function() {
         Deps.autorun(function() {
             var user = Meteor.user();
-            if (!user) // "log out"
+            if (!user) { // "log out"
                 return Intercom('shutdown');
+            }
 
             var info = IntercomSettings.minimumUserInfo(user);
             if (IntercomSettings.userInfo) {
@@ -43,15 +44,15 @@ if (Meteor.settings && Meteor.settings.public && Meteor.settings.public.intercom
             }
 
 
-            if (info) {
-                var type = booted ? 'update' : 'boot';
+            if (info && info.user_id) {
 
-                console.log(info);
+                var type = booted[info.user_id] ? 'update' : 'boot';
 
-                // console.log(type, info)
+                console.log(type, info);
+
                 Intercom(type, info);
 
-                booted = true;
+                booted[info.user_id] = true;
             }
         });
     });
