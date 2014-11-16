@@ -1,9 +1,11 @@
 Package.describe({
-  summary: "Intercom.io basic integration"
+  name: "tkornblit:intercom",
+  summary: "Intercom.io basic integration",
+  version: "0.2.0"
 });
 
 Package.on_use(function (api, where) {
-  api.use('session', 'client');
+  api.use('session@1.0.4', "client");
   api.add_files('intercom_server.js', 'server');
   api.add_files(['intercom_loader.js', 'intercom_client.js'], 'client');
   

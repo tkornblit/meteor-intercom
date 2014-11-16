@@ -46,6 +46,8 @@ if (Meteor.settings && Meteor.settings.public && Meteor.settings.public.intercom
             if (info) {
                 var type = booted ? 'update' : 'boot';
 
+                console.log(info);
+
                 // console.log(type, info)
                 Intercom(type, info);
 
